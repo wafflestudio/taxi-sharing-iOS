@@ -51,6 +51,7 @@
 		640FA5FC2212D66C00FE99E6 /* taxi_sharingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taxi_sharingUITests.swift; sourceTree = "<group>"; };
 		640FA5FE2212D66C00FE99E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64249C722233709000D258F8 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "kakao-ios-sdk-1.11.2/KakaoOpenSDK.framework"; sourceTree = "<group>"; };
+		64249C75223374CC00D258F8 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 				640FA5E32212D66C00FE99E6 /* Assets.xcassets */,
 				640FA5E52212D66C00FE99E6 /* LaunchScreen.storyboard */,
 				640FA5E82212D66C00FE99E6 /* Info.plist */,
+				64249C75223374CC00D258F8 /* KakaoOpenSDK-Bridging-Header.h */,
 			);
 			path = "taxi-sharing";
 			sourceTree = "<group>";
