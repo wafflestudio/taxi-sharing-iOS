@@ -464,7 +464,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "wafflestudio.taxi-sharing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "taxi-sharing/KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -488,7 +488,7 @@
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "wafflestudio.taxi-sharing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "KakaoOpenSDK-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "taxi-sharing/KakaoOpenSDK-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
