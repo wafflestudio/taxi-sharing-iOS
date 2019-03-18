@@ -1,0 +1,6 @@
+framework module Pods_taxi_sharingUITests {
+  umbrella header "Pods-taxi-sharingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

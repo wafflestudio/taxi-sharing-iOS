@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B8CAE119A781F2C4B007302 /* Pods_taxi_sharingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1920934CDA32386E036AEF8 /* Pods_taxi_sharingTests.framework */; };
+		429632BADE9767F11D073222 /* Pods_taxi_sharing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D58DD8C0433079FF64CB52AF /* Pods_taxi_sharing.framework */; };
 		640FA5DB2212D66B00FE99E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640FA5DA2212D66B00FE99E6 /* AppDelegate.swift */; };
 		640FA5DD2212D66B00FE99E6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640FA5DC2212D66B00FE99E6 /* FirstViewController.swift */; };
 		640FA5DF2212D66B00FE99E6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640FA5DE2212D66B00FE99E6 /* SecondViewController.swift */; };
@@ -16,6 +18,13 @@
 		640FA5F22212D66C00FE99E6 /* taxi_sharingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640FA5F12212D66C00FE99E6 /* taxi_sharingTests.swift */; };
 		640FA5FD2212D66C00FE99E6 /* taxi_sharingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640FA5FC2212D66C00FE99E6 /* taxi_sharingUITests.swift */; };
 		64249C732233709000D258F8 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64249C722233709000D258F8 /* KakaoOpenSDK.framework */; };
+		645B229A223BCB7A00F90412 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B2299223BCB7A00F90412 /* LoginViewController.swift */; };
+		645B22A2223BD20900F90412 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 645B22A1223BD20900F90412 /* GoogleService-Info.plist */; };
+		645B22A3223BD20900F90412 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 645B22A1223BD20900F90412 /* GoogleService-Info.plist */; };
+		645B22A4223BD20900F90412 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 645B22A1223BD20900F90412 /* GoogleService-Info.plist */; };
+		645B22A8223E5E7800F90412 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A7223E5E7800F90412 /* Utils.swift */; };
+		645B22AA223E5EDE00F90412 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A9223E5EDE00F90412 /* UserInfo.swift */; };
+		C4D745E6FAEF6BA2903E6972 /* Pods_taxi_sharingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D8F8CB4E1C569E49565EC73 /* Pods-taxi-sharing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharing.debug.xcconfig"; path = "Target Support Files/Pods-taxi-sharing/Pods-taxi-sharing.debug.xcconfig"; sourceTree = "<group>"; };
 		640FA5D72212D66B00FE99E6 /* taxi-sharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "taxi-sharing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		640FA5DA2212D66B00FE99E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		640FA5DC2212D66B00FE99E6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +62,18 @@
 		640FA5FE2212D66C00FE99E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64249C722233709000D258F8 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "kakao-ios-sdk-1.11.2/KakaoOpenSDK.framework"; sourceTree = "<group>"; };
 		64249C75223374CC00D258F8 /* KakaoOpenSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KakaoOpenSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		645B2299223BCB7A00F90412 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		645B22A1223BD20900F90412 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		645B22A7223E5E7800F90412 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		645B22A9223E5EDE00F90412 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingTests.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharingTests/Pods-taxi-sharingTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taxi_sharingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1920934CDA32386E036AEF8 /* Pods_taxi_sharingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taxi_sharingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF6CFBD6858E5D9A17DC46E8 /* Pods-taxi-sharingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingTests.debug.xcconfig"; path = "Target Support Files/Pods-taxi-sharingTests/Pods-taxi-sharingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2224F04B7F76EFD7A571BC4 /* Pods-taxi-sharingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingUITests.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharingUITests/Pods-taxi-sharingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D58DD8C0433079FF64CB52AF /* Pods_taxi_sharing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taxi_sharing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D880F07BD0258D9A382ACA28 /* Pods-taxi-sharingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingUITests.debug.xcconfig"; path = "Target Support Files/Pods-taxi-sharingUITests/Pods-taxi-sharingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F378257535CAEBEE0F8F9E4B /* Pods-taxi-sharing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharing.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharing/Pods-taxi-sharing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64249C732233709000D258F8 /* KakaoOpenSDK.framework in Frameworks */,
+				429632BADE9767F11D073222 /* Pods_taxi_sharing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B8CAE119A781F2C4B007302 /* Pods_taxi_sharingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +98,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D745E6FAEF6BA2903E6972 /* Pods_taxi_sharingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1409FB6258EA35934AAC2CA0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D8F8CB4E1C569E49565EC73 /* Pods-taxi-sharing.debug.xcconfig */,
+				F378257535CAEBEE0F8F9E4B /* Pods-taxi-sharing.release.xcconfig */,
+				BF6CFBD6858E5D9A17DC46E8 /* Pods-taxi-sharingTests.debug.xcconfig */,
+				8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */,
+				D880F07BD0258D9A382ACA28 /* Pods-taxi-sharingUITests.debug.xcconfig */,
+				C2224F04B7F76EFD7A571BC4 /* Pods-taxi-sharingUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		640FA5CE2212D66B00FE99E6 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +126,7 @@
 				640FA5FB2212D66C00FE99E6 /* taxi-sharingUITests */,
 				640FA5D82212D66B00FE99E6 /* Products */,
 				64249C712233709000D258F8 /* Frameworks */,
+				1409FB6258EA35934AAC2CA0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,12 +144,16 @@
 			isa = PBXGroup;
 			children = (
 				640FA5DA2212D66B00FE99E6 /* AppDelegate.swift */,
+				645B22A7223E5E7800F90412 /* Utils.swift */,
+				645B22A9223E5EDE00F90412 /* UserInfo.swift */,
+				645B2299223BCB7A00F90412 /* LoginViewController.swift */,
 				640FA5DC2212D66B00FE99E6 /* FirstViewController.swift */,
 				640FA5DE2212D66B00FE99E6 /* SecondViewController.swift */,
 				640FA5E02212D66B00FE99E6 /* Main.storyboard */,
 				640FA5E32212D66C00FE99E6 /* Assets.xcassets */,
 				640FA5E52212D66C00FE99E6 /* LaunchScreen.storyboard */,
 				640FA5E82212D66C00FE99E6 /* Info.plist */,
+				645B22A1223BD20900F90412 /* GoogleService-Info.plist */,
 				64249C75223374CC00D258F8 /* KakaoOpenSDK-Bridging-Header.h */,
 			);
 			path = "taxi-sharing";
@@ -138,6 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				64249C722233709000D258F8 /* KakaoOpenSDK.framework */,
+				D58DD8C0433079FF64CB52AF /* Pods_taxi_sharing.framework */,
+				B1920934CDA32386E036AEF8 /* Pods_taxi_sharingTests.framework */,
+				8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 640FA6012212D66C00FE99E6 /* Build configuration list for PBXNativeTarget "taxi-sharing" */;
 			buildPhases = (
+				551E516414EB117AA491858B /* [CP] Check Pods Manifest.lock */,
 				640FA5D32212D66B00FE99E6 /* Sources */,
 				640FA5D42212D66B00FE99E6 /* Frameworks */,
 				640FA5D52212D66B00FE99E6 /* Resources */,
+				AC37D9FDEEEE6B7A75E37D7E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,6 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 640FA6042212D66C00FE99E6 /* Build configuration list for PBXNativeTarget "taxi-sharingTests" */;
 			buildPhases = (
+				860838C25E5C73BBC6C12525 /* [CP] Check Pods Manifest.lock */,
 				640FA5E92212D66C00FE99E6 /* Sources */,
 				640FA5EA2212D66C00FE99E6 /* Frameworks */,
 				640FA5EB2212D66C00FE99E6 /* Resources */,
@@ -184,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 640FA6072212D66C00FE99E6 /* Build configuration list for PBXNativeTarget "taxi-sharingUITests" */;
 			buildPhases = (
+				214B5CEFE4D14961F382EC22 /* [CP] Check Pods Manifest.lock */,
 				640FA5F42212D66C00FE99E6 /* Sources */,
 				640FA5F52212D66C00FE99E6 /* Frameworks */,
 				640FA5F62212D66C00FE99E6 /* Resources */,
@@ -247,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				640FA5E72212D66C00FE99E6 /* LaunchScreen.storyboard in Resources */,
+				645B22A2223BD20900F90412 /* GoogleService-Info.plist in Resources */,
 				640FA5E42212D66C00FE99E6 /* Assets.xcassets in Resources */,
 				640FA5E22212D66B00FE99E6 /* Main.storyboard in Resources */,
 			);
@@ -256,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645B22A3223BD20900F90412 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,18 +315,121 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645B22A4223BD20900F90412 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		214B5CEFE4D14961F382EC22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taxi-sharingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		551E516414EB117AA491858B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taxi-sharing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		860838C25E5C73BBC6C12525 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taxi-sharingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC37D9FDEEEE6B7A75E37D7E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-taxi-sharing/Pods-taxi-sharing-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-taxi-sharing/Pods-taxi-sharing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		640FA5D32212D66B00FE99E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645B22A8223E5E7800F90412 /* Utils.swift in Sources */,
+				645B229A223BCB7A00F90412 /* LoginViewController.swift in Sources */,
 				640FA5DF2212D66B00FE99E6 /* SecondViewController.swift in Sources */,
 				640FA5DB2212D66B00FE99E6 /* AppDelegate.swift in Sources */,
+				645B22AA223E5EDE00F90412 /* UserInfo.swift in Sources */,
 				640FA5DD2212D66B00FE99E6 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +603,7 @@
 		};
 		640FA6022212D66C00FE99E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8F8CB4E1C569E49565EC73 /* Pods-taxi-sharing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,7 +617,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wafflestudio.taxi-sharing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "taxi-sharing/KakaoOpenSDK-Bridging-Header.h";
@@ -472,6 +631,7 @@
 		};
 		640FA6032212D66C00FE99E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F378257535CAEBEE0F8F9E4B /* Pods-taxi-sharing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -485,7 +645,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "wafflestudio.taxi-sharing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "taxi-sharing/KakaoOpenSDK-Bridging-Header.h";
@@ -496,6 +659,7 @@
 		};
 		640FA6052212D66C00FE99E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF6CFBD6858E5D9A17DC46E8 /* Pods-taxi-sharingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +681,7 @@
 		};
 		640FA6062212D66C00FE99E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -538,6 +703,7 @@
 		};
 		640FA6082212D66C00FE99E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D880F07BD0258D9A382ACA28 /* Pods-taxi-sharingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -558,6 +724,7 @@
 		};
 		640FA6092212D66C00FE99E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2224F04B7F76EFD7A571BC4 /* Pods-taxi-sharingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
