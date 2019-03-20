@@ -39,6 +39,8 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: Actions
+    
     // IBAction function when loginKakao button is clicked.
     @IBAction func loginKakao(_ sender: UIButton) {
         
@@ -82,20 +84,21 @@ class LoginViewController: UIViewController {
             print("Error in adding token as a parameter: \(error)")
         }
         
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let signInTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard let data = data, error == nil else {
                 print("Error in request token verifying: \(error!)")
                 return
             }
             do {
                 let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
+                print("jsonResponse: \(jsonResponse)")
                 let firebaseToken = jsonResponse["firebase_token"]!
                 self.signInToFirebaseWithToken(firebaseToken: firebaseToken)
             } catch let error {
                 print("Error in parsing token: \(error)")
             }
-            
-            }.resume()
+            }
+        signInTask.resume()
     }
     
     /**
@@ -116,13 +119,17 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the user is authenticated
+        guard Auth.auth().currentUser != nil else {
+            os_log("The user is not logged in, cancelling.", log: OSLog.default, type: .debug)
+            return
+        }
     }
-    */
 }

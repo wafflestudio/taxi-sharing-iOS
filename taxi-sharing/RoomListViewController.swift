@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  RoomListViewController.swift
 //  taxi-sharing
 //
 //  Created by 오승열 on 12/02/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class RoomListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
