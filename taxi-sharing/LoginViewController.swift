@@ -9,8 +9,6 @@
 import UIKit
 import os.log
 import FirebaseAuth
-import Alamofire
-import WebKit
 
 class LoginViewController: UIViewController {
     
@@ -69,6 +67,7 @@ class LoginViewController: UIViewController {
      These codes are copied from https://github.com/FirebaseExtended/custom-auth-samples. Minor changes added to the original source.
     */
     func requestFirebaseToken(userID: String) {
+        
         let url = URL(string: String(format: "%@/verifyToken", Bundle.main.object(forInfoDictionaryKey: "VALIDATION_SERVER_URL") as! String))!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -91,9 +90,9 @@ class LoginViewController: UIViewController {
             }
             do {
                 let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
-                print("jsonResponse: \(jsonResponse)")
                 let firebaseToken = jsonResponse["firebase_token"]!
-                self.signInToFirebaseWithToken(firebaseToken: firebaseToken)
+                self.signInToFirebaseWithToken(firebaseToken: firebaseToken, userID: userID)
+                
             } catch let error {
                 print("Error in parsing token: \(error)")
             }
@@ -108,17 +107,20 @@ class LoginViewController: UIViewController {
      
      These codes are also from https://github.com/FirebaseExtended/custom-auth-samples.
      */
-    func signInToFirebaseWithToken(firebaseToken: String) {
+    func signInToFirebaseWithToken(firebaseToken: String, userID: String) {
         Auth.auth().signIn(withCustomToken: firebaseToken) { (user, error) in
             if let authError = error {
                 print("Error in authenticating with Firebase custom token: \(authError)")
             } else {
-                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                if FirestoreManager().checkUser(uid: userID) {
+                    FirestoreManager().updateLogin(uid: userID)
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "signupSegue", sender: self)
+                }
             }
         }
     }
-    
-
     
     // MARK: - Navigation
 

@@ -8,8 +8,7 @@ target 'taxi-sharing' do
   # Pods for taxi-sharing
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
-  pod 'Alamofire', '~> 5.0.0-beta.3'
+  pod 'Firebase/Firestore'
 
   target 'taxi-sharingTests' do
     inherit! :search_paths
