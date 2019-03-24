@@ -56,20 +56,20 @@ class FirestoreManager {
     }
     
     // Checks if a user exists in Cloud Firestore
-    func checkUser(uid: String?) -> Bool {
+    func checkUser(uid: String?, completion: @escaping (Bool) -> Void) {
         let userRef = db.collection("users").document(uid!)
-        var result = false
         
         userRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                print("The user's document does exist.")
-                result = true
+            if let error = error {
+                print("Error getting the user \(uid!)'s document.: \(error)")
+            } else if let document = document, document.exists {
+                print("The user \(uid!)'s document does exist.")
+                completion(true)
             } else {
-                print("The user's document does not exist: \(String(describing: error))")
-                result = false
+                print("The user \(uid!)'s document does not exist.")
+                completion(false)
             }
         }
-        return result
     }
     
     // Updates a user's login log
@@ -91,6 +91,8 @@ class FirestoreManager {
             "userID": uid!,
             "name": name,
             "number": number,
+            "createdDate": FieldValue.serverTimestamp(),
+            "lastLoginDate": FieldValue.serverTimestamp(),
             "isVerified": false,
             "currentRoom": "None"
         ]) {err in
@@ -114,20 +116,33 @@ class FirestoreManager {
     }
     
     // Checks if a user exists in Cloud Firestore
-    func checkDriver(uid: String?) -> Bool {
-        var result = false
+    func checkDriver(uid: String?, completion: @escaping (Bool) -> Void) {
         let userRef = db.collection("drivers").document(uid!)
+        
         userRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                print("The driver's document does exist.")
-                result = true
+            if let error = error {
+                print("Error getting the drive \(uid!)'s document.: \(error)")
+            } else if let document = document, document.exists {
+                print("The driver \(uid!)'s document does exist.")
+                completion(true)
             } else {
-                print("The driver's document does not exist.")
-                result = false
+                print("The driver \(uid!)'s document does not exist.")
+                completion(false)
             }
         }
-        
-        return result
+    }
+    
+    // Updates a user's login log
+    func updateDriverLogin(uid: String?) {
+        db.collection("drivers").document(uid!).updateData([
+            "lastLoginDate": FieldValue.serverTimestamp()
+        ]) {err in
+            if let err = err {
+                print("Error updating driver \(uid!)'s lastLoginDate: \(err)")
+            } else {
+                print("The driver \(uid!)'s lastLoginDate was successfully updated")
+            }
+        }
     }
     
     // Adds room to Cloud Firestore

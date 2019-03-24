@@ -14,28 +14,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        if Auth.auth().currentUser == nil {
-            if KOSession.shared().isOpen() {
-                KOSessionTask.userMeTask(completion: { (error, me) in if let error = error as Error? {
-                    print("Error in getting user information through KOSessionTask.userMeTask: \(error)")
-                } else if let me = me as KOUserMe? {
-                    self.requestFirebaseToken(userID: "iOSKakao" + me.id!)
-                } else {
-                    print("has no id")
-                    }
-                })
-                os_log("login succeeded.", log: OSLog.default, type: .debug)
-            }
-        } else if FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {
-            self.performSegue(withIdentifier: "loginSegue", sender: self)
-        }
-        */
-        if Auth.auth().currentUser != nil {
-            if FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {
-                self.performSegue(withIdentifier: "loginSegue", sender: self)
-            }
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -117,11 +95,13 @@ class LoginViewController: UIViewController {
             if let authError = error {
                 print("Error in authenticating with Firebase custom token: \(authError)")
             } else {
-                if FirestoreManager().checkUser(uid: userID) {
-                    FirestoreManager().updateLogin(uid: userID)
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
-                } else {
-                    self.performSegue(withIdentifier: "signupSegue", sender: self)
+                FirestoreManager().checkUser(uid: userID) {(success) in
+                    if success == true {
+                        FirestoreManager().updateLogin(uid: userID)
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "signupSegue", sender: self)
+                    }
                 }
             }
         }

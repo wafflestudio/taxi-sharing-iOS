@@ -14,12 +14,15 @@ class SetNicknameViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var guidanceLabel: UILabel!
+    @IBOutlet weak var setNicknameButton: UIButton!
     let lengthLimit = 15
+    var gender = ""
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        setNicknameButton.isEnabled = false
+
         // Handle the text field’s user input through delegate callbacks.
         nicknameTextField.delegate = self
     }
@@ -40,13 +43,27 @@ class SetNicknameViewController: UIViewController, UITextFieldDelegate {
         return newLength <= lengthLimit
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.checkField(sender: self)
+    }
+    
+    //MARK: Private Functions
+    private func checkField(sender: AnyObject) {
+        if (nicknameTextField.text?.isEmpty)! {
+            setNicknameButton.isEnabled = false
+        } else {
+            setNicknameButton.isEnabled = true
+        }
+    }
+    
     //MARK: Actions
     @IBAction func setNickname(_ sender: UIButton) {
         
         if nicknameTextField.text != nil {
             if (nicknameTextField.text!.count == 0 )  {
                 guidanceLabel.text = "이름을 입력하지 않았습니다."
-            } else if (nicknameTextField.text!.count <= 15) {
+            } else if (0 < nicknameTextField.text!.count && nicknameTextField.text!.count <= 15) {
+                FirestoreManager().createUser(uid: Auth.auth().currentUser?.uid, gender: gender, isSNUMember: false, SNUmail: "None")
                 FirestoreManager().updateUser(uid: Auth.auth().currentUser?.uid, data: ["nickname": nicknameTextField.text!])
                 self.performSegue(withIdentifier: "nicknameLoginSegue", sender: self)
             } else {

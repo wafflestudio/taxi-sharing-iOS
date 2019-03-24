@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EE2AB5616EC2CBA89A87B6F63C40B2B4"
+               BlueprintIdentifier = "642DA36B40012C6842E04DFC4FCE2F5A"
                BuildableName = "Pods_taxi_sharing.framework"
                BlueprintName = "Pods-taxi-sharing"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EE2AB5616EC2CBA89A87B6F63C40B2B4"
+            BlueprintIdentifier = "642DA36B40012C6842E04DFC4FCE2F5A"
             BuildableName = "Pods_taxi_sharing.framework"
             BlueprintName = "Pods-taxi-sharing"
             ReferencedContainer = "container:Pods.xcodeproj">

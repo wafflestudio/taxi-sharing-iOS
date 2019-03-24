@@ -15,14 +15,18 @@ class UserDistinguishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if Auth.auth().currentUser != nil {
-            print("뭐야뭐야: \(FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid))")
-            switch FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {
-                
-            case true:
-                self.performSegue(withIdentifier: "", sender: self)
-            case false:
-                if FirestoreManager().checkDriver(uid: Auth.auth().currentUser?.uid) {
-                    self.performSegue(withIdentifier: "driverLoginSegue", sender: self)
+            FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {(success) in
+                if success == true {
+                    FirestoreManager().updateLogin(uid: Auth.auth().currentUser?.uid)
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                } else if success == false {
+                    FirestoreManager().checkDriver(uid: Auth.auth().currentUser?.uid) {(success) in
+                        if success == true {
+                            FirestoreManager().updateDriverLogin(uid: Auth.auth().currentUser?.uid)
+                            self.performSegue(withIdentifier: "driverLoginSegue", sender: self)
+                        }
+                    }
+                    
                 }
             }
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rVW-PQ-Y2w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -195,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nJ-8Z-OVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1084" y="26.53673163418291"/>
+            <point key="canvasLocation" x="-2114.4000000000001" y="912.5937031484259"/>
         </scene>
         <!--Ask Gender View Controller-->
         <scene sceneID="Sdn-Wb-N3F">
@@ -218,10 +218,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별을 선택해주세요.  성별 제한 승차공유방 이용에 활용됩니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0s-e7-UNV">
-                                <rect key="frame" x="52" y="447" width="271" height="41"/>
+                                <rect key="frame" x="52" y="459" width="271" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yxV-Pr-Yhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-745" y="913"/>
+            <point key="canvasLocation" x="-1009" y="913"/>
         </scene>
         <!--SetNicknameViewController-->
         <scene sceneID="arS-lw-rj7">
@@ -371,11 +371,12 @@
                     <connections>
                         <outlet property="guidanceLabel" destination="Vkp-BP-vpF" id="pda-Fa-9sd"/>
                         <outlet property="nicknameTextField" destination="uVN-YV-odL" id="HTw-Ar-gmG"/>
+                        <outlet property="setNicknameButton" destination="meq-Yx-o09" id="YU8-ZW-HgY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfE-IX-QvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="912.5937031484259"/>
+            <point key="canvasLocation" x="58" y="913"/>
         </scene>
         <!--UserDistinguishViewController-->
         <scene sceneID="cYe-F8-14s">
@@ -445,10 +446,13 @@
                         <viewLayoutGuide key="safeArea" id="wfl-o0-mMB"/>
                     </view>
                     <navigationItem key="navigationItem" id="PnU-yE-cVV"/>
+                    <connections>
+                        <segue destination="bS2-0G-duU" kind="presentation" identifier="loginSegue" id="WB1-8O-vhE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-BM-uPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2207.1999999999998" y="26.53673163418291"/>
+            <point key="canvasLocation" x="-2926" y="-125"/>
         </scene>
         <!--Item-->
         <scene sceneID="skP-q9-ElU">
@@ -545,10 +549,10 @@
             </objects>
             <point key="canvasLocation" x="3316" y="2372.5637181409297"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MainTabBarController-->
         <scene sceneID="lLs-zi-TRy">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bS2-0G-duU" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" title="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bS2-0G-duU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p88-hW-n3o">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -574,9 +578,8 @@
         <image name="passenger" width="384" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x3W-kh-QzL"/>
-        <segue reference="fje-sv-NVh"/>
+        <segue reference="WB1-8O-vhE"/>
         <segue reference="XfT-c3-Dvo"/>
-        <segue reference="MX4-9O-Iji"/>
+        <segue reference="ueL-j3-f6p"/>
     </inferredMetricsTieBreakers>
 </document>

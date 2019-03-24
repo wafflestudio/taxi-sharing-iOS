@@ -8,7 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseFirestore
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +27,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [END default_firestore]
         print(db) // silence warning
         
+        // Enable IQKeyboardManagerSwift
+        IQKeyboardManager.shared.enable = true
+        
+        // Sets the initial view controller based on the user's authentication
+        if Auth.auth().currentUser != nil {
+            FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {(success) in
+                if success == true {
+                    FirestoreManager().updateLogin(uid: Auth.auth().currentUser?.uid)
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                } else if success == false {
+                    FirestoreManager().checkDriver(uid: Auth.auth().currentUser?.uid) {(success) in
+                        if success == true {
+                            FirestoreManager().updateDriverLogin(uid: Auth.auth().currentUser?.uid)
+                            self.window = UIWindow(frame: UIScreen.main.bounds)
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "DriverMainViewController")
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        } else {
+                            self.window = UIWindow(frame: UIScreen.main.bounds)
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let initialViewController = storyboard.instantiateViewController(withIdentifier: "UserDistinguishViewController")
+                            self.window?.rootViewController = initialViewController
+                            self.window?.makeKeyAndVisible()
+                        }
+                    }
+                    
+                }
+            }
+        } else {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "UserDistinguishViewController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+
         return true
     }
 

@@ -15,6 +15,7 @@ class AskGenderViewController: UIViewController {
     //MARK: Properties
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var maleButton: UIButton!
+    var gender = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,12 @@ class AskGenderViewController: UIViewController {
     
     //MAKR: IBActions
     @IBAction func femaleSignup(_ sender: UIButton) {
-        let uid = Auth.auth().currentUser!.uid
-        FirestoreManager().createUser(uid: uid, gender: "F", isSNUMember: false, SNUmail: "None")
+        gender = "F"
         self.performSegue(withIdentifier: "femaleSignupSegue", sender: self)
     }
     
     @IBAction func maleSignup(_ sender: UIButton) {
-        let uid = Auth.auth().currentUser!.uid
-        FirestoreManager().createUser(uid: uid, gender: "M", isSNUMember: false, SNUmail: "None")
+        gender = "M"
         self.performSegue(withIdentifier: "maleSignupSegue", sender: self)
     }
 
@@ -46,6 +45,10 @@ class AskGenderViewController: UIViewController {
         guard Auth.auth().currentUser != nil else {
             os_log("The user is not logged in, cancelling.", log: OSLog.default, type: .debug)
             return
+        }
+        if segue.destination is SetNicknameViewController {
+            let vc = segue.destination as? SetNicknameViewController
+            vc?.gender = gender
         }
     }
     
