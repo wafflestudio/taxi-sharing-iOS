@@ -14,12 +14,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        /*
         if Auth.auth().currentUser == nil {
             if KOSession.shared().isOpen() {
                 KOSessionTask.userMeTask(completion: { (error, me) in if let error = error as Error? {
@@ -32,9 +27,19 @@ class LoginViewController: UIViewController {
                 })
                 os_log("login succeeded.", log: OSLog.default, type: .debug)
             }
-        } else {
+        } else if FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {
             self.performSegue(withIdentifier: "loginSegue", sender: self)
         }
+        */
+        if Auth.auth().currentUser != nil {
+            if FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     //MARK: Actions

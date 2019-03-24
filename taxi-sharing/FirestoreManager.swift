@@ -26,6 +26,7 @@ class FirestoreManager {
     func createUser(uid: String?, gender: String?, isSNUMember: Bool?, SNUmail: String?) {
         db.collection("users").document(uid!).setData([
             "userID": uid!,
+            "nickname": "",
             "gender": gender!,
             "isSNUMember": isSNUMember!,
             "SNUmail": SNUmail!,
@@ -56,16 +57,15 @@ class FirestoreManager {
     
     // Checks if a user exists in Cloud Firestore
     func checkUser(uid: String?) -> Bool {
-        var result = true
         let userRef = db.collection("users").document(uid!)
-        userRef.getDocument{(document, error) in
-            if let document = document {
-                if document.exists {
-                    result = true
-                } else {
-                    result = false
-                }
+        var result = false
+        
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("The user's document does exist.")
+                result = true
             } else {
+                print("The user's document does not exist: \(String(describing: error))")
                 result = false
             }
         }
@@ -86,8 +86,9 @@ class FirestoreManager {
     }
     
     // Adds driver to Cloud Firestore
-    func createDriver(name: String, number: String) {
-        db.collection("drivers").document(name).setData([
+    func createDriver(uid:String?, name: String, number: String) {
+        db.collection("drivers").document(uid!).setData([
+            "userID": uid!,
             "name": name,
             "number": number,
             "isVerified": false,
@@ -102,14 +103,31 @@ class FirestoreManager {
     }
     
     // Updates a driver's document
-    func updateDriver(name: String, data: [String: Any]) {
-        db.collection("drivers").document(name).updateData(data) {err in
+    func updateDriver(uid: String?, data: [String: Any]) {
+        db.collection("drivers").document(uid!).updateData(data) {err in
             if let err = err {
-                print("Error updating driver \(name)'s document: \(err)")
+                print("Error updating driver \(uid!)'s document: \(err)")
             } else {
-                print("Driver \(name)'s document was successfully updated")
+                print("Driver \(uid!)'s document was successfully updated")
             }
         }
+    }
+    
+    // Checks if a user exists in Cloud Firestore
+    func checkDriver(uid: String?) -> Bool {
+        var result = false
+        let userRef = db.collection("drivers").document(uid!)
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("The driver's document does exist.")
+                result = true
+            } else {
+                print("The driver's document does not exist.")
+                result = false
+            }
+        }
+        
+        return result
     }
     
     // Adds room to Cloud Firestore

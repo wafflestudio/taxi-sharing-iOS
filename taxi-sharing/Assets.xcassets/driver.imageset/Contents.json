@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "푼푼_로고_확대.png",
+      "filename" : "driver.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "푼푼_로고_확대-1.png",
+      "filename" : "driver-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "푼푼_로고_확대-2.png",
+      "filename" : "driver-2.png",
       "scale" : "3x"
     }
   ],

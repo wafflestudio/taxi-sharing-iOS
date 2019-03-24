@@ -22,9 +22,9 @@
 		645B22A3223BD20900F90412 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 645B22A1223BD20900F90412 /* GoogleService-Info.plist */; };
 		645B22A4223BD20900F90412 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 645B22A1223BD20900F90412 /* GoogleService-Info.plist */; };
 		645B22A8223E5E7800F90412 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A7223E5E7800F90412 /* Utils.swift */; };
-		645B22AA223E5EDE00F90412 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A9223E5EDE00F90412 /* UserInfo.swift */; };
 		648157CF224511CB008111EF /* AskGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648157CE224511CB008111EF /* AskGenderViewController.swift */; };
 		64CCDECA22446A4D002ECD04 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */; };
+		64E5BED42245E00500A07BA7 /* SetNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BED32245E00500A07BA7 /* SetNicknameViewController.swift */; };
 		64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */; };
 		C4D745E6FAEF6BA2903E6972 /* Pods_taxi_sharingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,9 +66,9 @@
 		645B2299223BCB7A00F90412 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		645B22A1223BD20900F90412 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		645B22A7223E5E7800F90412 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		645B22A9223E5EDE00F90412 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		648157CE224511CB008111EF /* AskGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskGenderViewController.swift; sourceTree = "<group>"; };
 		64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		64E5BED32245E00500A07BA7 /* SetNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNicknameViewController.swift; sourceTree = "<group>"; };
 		64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistinguishViewController.swift; sourceTree = "<group>"; };
 		8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingTests.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharingTests/Pods-taxi-sharingTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taxi_sharingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,12 +149,12 @@
 			children = (
 				640FA5DA2212D66B00FE99E6 /* AppDelegate.swift */,
 				645B22A7223E5E7800F90412 /* Utils.swift */,
-				645B22A9223E5EDE00F90412 /* UserInfo.swift */,
 				64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */,
-				645B2299223BCB7A00F90412 /* LoginViewController.swift */,
-				640FA5DC2212D66B00FE99E6 /* RoomListViewController.swift */,
-				648157CE224511CB008111EF /* AskGenderViewController.swift */,
 				64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */,
+				645B2299223BCB7A00F90412 /* LoginViewController.swift */,
+				648157CE224511CB008111EF /* AskGenderViewController.swift */,
+				64E5BED32245E00500A07BA7 /* SetNicknameViewController.swift */,
+				640FA5DC2212D66B00FE99E6 /* RoomListViewController.swift */,
 				640FA5E02212D66B00FE99E6 /* Main.storyboard */,
 				640FA5E32212D66C00FE99E6 /* Assets.xcassets */,
 				640FA5E52212D66C00FE99E6 /* LaunchScreen.storyboard */,
@@ -440,10 +440,10 @@
 				645B22A8223E5E7800F90412 /* Utils.swift in Sources */,
 				64CCDECA22446A4D002ECD04 /* FirestoreManager.swift in Sources */,
 				645B229A223BCB7A00F90412 /* LoginViewController.swift in Sources */,
+				64E5BED42245E00500A07BA7 /* SetNicknameViewController.swift in Sources */,
 				648157CF224511CB008111EF /* AskGenderViewController.swift in Sources */,
 				640FA5DB2212D66B00FE99E6 /* AppDelegate.swift in Sources */,
 				64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */,
-				645B22AA223E5EDE00F90412 /* UserInfo.swift in Sources */,
 				640FA5DD2212D66B00FE99E6 /* RoomListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +628,7 @@
 					"$(PROJECT_DIR)/kakao-ios-sdk-1.11.2",
 				);
 				INFOPLIST_FILE = "taxi-sharing/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -657,6 +658,7 @@
 					"$(PROJECT_DIR)/kakao-ios-sdk-1.11.2",
 				);
 				INFOPLIST_FILE = "taxi-sharing/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

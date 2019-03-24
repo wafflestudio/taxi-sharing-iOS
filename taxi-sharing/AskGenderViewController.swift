@@ -11,24 +11,29 @@ import FirebaseAuth
 import os.log
 
 class AskGenderViewController: UIViewController {
-
+    
+    //MARK: Properties
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var maleButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        femaleButton.layer.cornerRadius = 5
+        maleButton.layer.cornerRadius = 5
     }
     
     //MAKR: IBActions
     @IBAction func femaleSignup(_ sender: UIButton) {
         let uid = Auth.auth().currentUser!.uid
         FirestoreManager().createUser(uid: uid, gender: "F", isSNUMember: false, SNUmail: "None")
-        self.performSegue(withIdentifier: "femaleLoginSegue", sender: self)
+        self.performSegue(withIdentifier: "femaleSignupSegue", sender: self)
     }
     
     @IBAction func maleSignup(_ sender: UIButton) {
         let uid = Auth.auth().currentUser!.uid
         FirestoreManager().createUser(uid: uid, gender: "M", isSNUMember: false, SNUmail: "None")
-        self.performSegue(withIdentifier: "maleLoginSegue", sender: self)
+        self.performSegue(withIdentifier: "maleSignupSegue", sender: self)
     }
 
     
