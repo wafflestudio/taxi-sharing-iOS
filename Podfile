@@ -9,6 +9,7 @@ target 'taxi-sharing' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'IQKeyboardManagerSwift'
 
   target 'taxi-sharingTests' do

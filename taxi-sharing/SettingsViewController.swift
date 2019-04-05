@@ -16,6 +16,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var accountInfoView: UIView!
     @IBOutlet weak var accountSettingsView: UIView!
+    @IBOutlet weak var appSettingsView: UIView!
+    @IBOutlet weak var appInfoView: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var noShowLabel: UILabel!
@@ -36,6 +38,12 @@ class SettingsViewController: UIViewController {
         accountSettingsView.layer.cornerRadius = 5
         accountSettingsView.layer.borderColor = poonpoonColor.cgColor
         accountSettingsView.layer.borderWidth = 2
+        appSettingsView.layer.cornerRadius = 5
+        appSettingsView.layer.borderColor = poonpoonColor.cgColor
+        appSettingsView.layer.borderWidth = 2
+        appInfoView.layer.cornerRadius = 5
+        appInfoView.layer.borderColor = poonpoonColor.cgColor
+        appInfoView.layer.borderWidth = 2
         
         let userRef = db.collection("users").document((Auth.auth().currentUser?.uid)!)
         

@@ -12,12 +12,21 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
+    //MARK: Properties
+    @IBOutlet weak var kakaoLoginButton: KOLoginButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if self.kakaoLoginButton.isEnabled == false {
+            self.kakaoLoginButton.isEnabled = true
+        }
+        
         Auth.auth().addStateDidChangeListener() {auth, user in
             if user != nil {
                 FirestoreManager().checkUser(uid: user?.uid) {(success) in
