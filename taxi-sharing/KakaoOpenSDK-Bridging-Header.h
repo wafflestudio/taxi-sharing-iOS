@@ -10,6 +10,7 @@
 #define KakaoOpenSDK_Bridging_Header_h
 
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import <DaumMap/MTMapView.h>
 
 #endif /* KakaoOpenSDK_Bridging_Header_h */
 

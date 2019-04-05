@@ -33,7 +33,6 @@ class FirestoreManager {
             "createdDate": FieldValue.serverTimestamp(),
             "lastLoginDate": FieldValue.serverTimestamp(),
             "noShow": 0,
-            "noPay": 0,
             "currentRoom": "None"
         ]) {err in
             if let err = err {
@@ -81,6 +80,66 @@ class FirestoreManager {
                 print("Error updating \(uid!)'s lastLoginDate: \(err)")
             } else {
                 print("\(uid!)'s lastLoginDate was successfully updated")
+            }
+        }
+    }
+    
+    /* Receives Firebase custom token from the server, and then log in into firebase authentication.
+     These codes are copied from https://github.com/FirebaseExtended/custom-auth-samples. Minor changes added to the original source.
+     */
+    func requestFirebaseToken(userID: String) {
+        
+        let url = URL(string: String(format: "%@/verifyToken", Bundle.main.object(forInfoDictionaryKey: "VALIDATION_SERVER_URL") as! String))!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let parameters: [String: String] = ["userID": userID]
+        
+        do {
+            let jsonParams = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            urlRequest.httpBody = jsonParams
+        } catch {
+            print("Error in adding token as a parameter: \(error)")
+        }
+        
+        let signInTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print("Error in request token verifying: \(error!)")
+                return
+            }
+            do {
+                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as! [String: String]
+                let firebaseToken = jsonResponse["firebase_token"]!
+                self.signInToFirebaseWithToken(firebaseToken: firebaseToken, userID: userID)
+                
+            } catch let error {
+                print("Error in parsing token: \(error)")
+            }
+        }
+        signInTask.resume()
+    }
+    
+    /**
+     Sign in to Firebse with the custom token generated from the validation server.
+     
+     Performs segue if signed in successfully.
+     
+     These codes are also from https://github.com/FirebaseExtended/custom-auth-samples.
+     */
+    func signInToFirebaseWithToken(firebaseToken: String, userID: String) {
+        Auth.auth().signIn(withCustomToken: firebaseToken) { (user, error) in
+            if let authError = error {
+                print("Error in authenticating with Firebase custom token: \(authError)")
+            } else {
+                FirestoreManager().checkUser(uid: userID) {(success) in
+                    if success == true {
+                        FirestoreManager().updateLogin(uid: userID)
+                    } else {
+                        print("Error: the user got in the wrong direction, getting into the table view straight away while the user's document is not in the firestore.")
+                    }
+                }
             }
         }
     }

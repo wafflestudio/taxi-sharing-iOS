@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [END default_firestore]
         print(db) // silence warning
         
+        // Turn of Layout Constraint related issues on console.
+        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        
         // Enable IQKeyboardManagerSwift
         IQKeyboardManager.shared.enable = true
         
@@ -34,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if Auth.auth().currentUser != nil {
             FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {(success) in
                 if success == true {
-                    FirestoreManager().updateLogin(uid: Auth.auth().currentUser?.uid)
+                    FirestoreManager().requestFirebaseToken(userID: (Auth.auth().currentUser?.uid)!)
                     self.window = UIWindow(frame: UIScreen.main.bounds)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")

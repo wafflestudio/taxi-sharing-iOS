@@ -14,7 +14,11 @@ class UserDistinguishViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if Auth.auth().currentUser != nil {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        /*if Auth.auth().currentUser != nil {
             FirestoreManager().checkUser(uid: Auth.auth().currentUser?.uid) {(success) in
                 if success == true {
                     FirestoreManager().updateLogin(uid: Auth.auth().currentUser?.uid)
@@ -29,25 +33,23 @@ class UserDistinguishViewController: UIViewController {
                     
                 }
             }
+        } else {
+            print("Firestore currenUser is nil")
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        */
     }
     
     //MARK: Actions
     
     // IBAction function when loginPassenger button is clicked.
     @IBAction func loginPassenger(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "passengerLoginSegue", sender: self)
+        self.performSegue(withIdentifier: "passengerSegue", sender: self)
         
     }
     
     // IBAction function when loginDer button is clicked.
     @IBAction func loginDriver(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "driverLoginSegue", sender: self)
-        
+        //self.performSegue(withIdentifier: "driverSegue", sender: self)
     }
     
     
@@ -57,9 +59,10 @@ class UserDistinguishViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        
     }
-    
+    */
 
 }
