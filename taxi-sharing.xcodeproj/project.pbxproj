@@ -34,7 +34,7 @@
 		645B22A8223E5E7800F90412 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A7223E5E7800F90412 /* Utils.swift */; };
 		64620DC92255E73100D2CEA9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64620DC82255E73100D2CEA9 /* SettingsViewController.swift */; };
 		648157CF224511CB008111EF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648157CE224511CB008111EF /* SignupViewController.swift */; };
-		64B782BC2283EA23002476F8 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B782BB2283EA23002476F8 /* CropViewController.swift */; };
+		64B782BE2283ECF1002476F8 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B782BD2283ECF1002476F8 /* CropViewController.swift */; };
 		64CCDECA22446A4D002ECD04 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */; };
 		64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */; };
 		C4D745E6FAEF6BA2903E6972 /* Pods_taxi_sharingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */; };
@@ -103,7 +103,7 @@
 		645B22A7223E5E7800F90412 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		64620DC82255E73100D2CEA9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		648157CE224511CB008111EF /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		64B782BB2283EA23002476F8 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		64B782BD2283ECF1002476F8 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistinguishViewController.swift; sourceTree = "<group>"; };
 		8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingTests.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharingTests/Pods-taxi-sharingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				648157CE224511CB008111EF /* SignupViewController.swift */,
 				640FA5DC2212D66B00FE99E6 /* RoomListViewController.swift */,
 				64620DC82255E73100D2CEA9 /* SettingsViewController.swift */,
-				64B782BB2283EA23002476F8 /* CropViewController.swift */,
+				64B782BD2283ECF1002476F8 /* CropViewController.swift */,
 				640FA5E02212D66B00FE99E6 /* Main.storyboard */,
 				640FA5E32212D66C00FE99E6 /* Assets.xcassets */,
 				640FA5E52212D66C00FE99E6 /* LaunchScreen.storyboard */,
@@ -514,7 +514,7 @@
 				64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */,
 				640FA5DD2212D66B00FE99E6 /* RoomListViewController.swift in Sources */,
 				64620DC92255E73100D2CEA9 /* SettingsViewController.swift in Sources */,
-				64B782BC2283EA23002476F8 /* CropViewController.swift in Sources */,
+				64B782BE2283ECF1002476F8 /* CropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
