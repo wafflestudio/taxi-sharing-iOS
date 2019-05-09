@@ -67,6 +67,8 @@
 	<string>택시 승차공유 매칭을 위해 위치정보가 필요합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>택시 승차공유 매칭을 위해 위치정보가 필요합니다.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>프로필 이미지 설정을 위해 사진 라이브러리 접근이 필요합니다.</string>
 	<key>REQUEST_UID_URL</key>
 	<string>https://kapi.kakao.com/v1/user/me</string>
 	<key>UILaunchStoryboardName</key>

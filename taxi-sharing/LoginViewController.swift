@@ -79,6 +79,19 @@ class LoginViewController: UIViewController {
             os_log("The user is not logged in, cancelling.", log: OSLog.default, type: .debug)
             return
         }
+        
+        switch(segue.identifier ?? "") {
+        case "loginSegue":
+            os_log("Existing user logging in.", log: OSLog.default, type: .debug)
+            
+        case "signupSegue":
+            guard segue.destination is SignupViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: Properties
-    
     @IBOutlet weak var accountInfoView: UIView!
     @IBOutlet weak var accountSettingsView: UIView!
     @IBOutlet weak var appSettingsView: UIView!
@@ -23,9 +23,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var noShowLabel: UILabel!
     @IBOutlet weak var isAuthenticatedLabel: UILabel!
     
-    
-    
     let db = Firestore.firestore()
+    let storage = Storage.storage()
     
     
     override func viewDidLoad() {
@@ -65,6 +64,46 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        profilePicture.image = selectedImage
+        
+        // Create a reference to the picture file to be uploaded.
+        let storageRef = storage.reference()
+        let profileImageRef = storageRef.child("\(Auth.auth().currentUser?.uid)/\(FieldValue.serverTimestamp()).jpg")
+        
+        // Upload the file to the reference path
+        guard let imageData = selectedImage.pngData() else {return}
+        print(imageData)
+        let uploadTask = profileImageRef.putData(imageData, metadata: nil) { metadata, error in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            /*
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            // You can also access to download URL after upload.
+             storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+            } */
+        }
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
     //MARK: IBActions
     @IBAction func logoutAction(_ sender: Any) {
         do {
@@ -80,7 +119,15 @@ class SettingsViewController: UIViewController {
         }
     }
     
-
+    @IBAction func setProfileImage(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

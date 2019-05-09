@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -328,6 +328,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e89-bi-kPu">
                                                         <rect key="frame" x="0.0" y="118" width="304" height="30"/>
                                                         <state key="normal" title="프로필 이미지 변경"/>
+                                                        <connections>
+                                                            <action selector="setProfileImage:" destination="1nU-ja-xy5" eventType="touchUpInside" id="AGo-BD-9C3"/>
+                                                            <segue destination="KBe-Eh-tuw" kind="presentation" id="RSP-zR-hrk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNW-gg-dQU">
                                                         <rect key="frame" x="0.0" y="159" width="304" height="30"/>
@@ -395,6 +399,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGF-CC-0Mh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4582.5" y="2897.5352112676055"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8Hf-MJ-Md8">
+            <objects>
+                <viewController id="KBe-Eh-tuw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zu9-qc-ISR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8mX-hG-XpQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyg-E1-bvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5628" y="2663"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="f8q-Iw-Afe">
@@ -668,16 +687,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Board" width="32" height="32"/>
-        <image name="Notification" width="32" height="32"/>
-        <image name="Profile" width="402.72000122070312" height="403.67999267578125"/>
-        <image name="RealTime" width="32" height="32"/>
-        <image name="Reservation" width="32" height="32"/>
-        <image name="SelectedButton" width="1" height="36"/>
-        <image name="Settings" width="32" height="32"/>
-        <image name="TitleLogo" width="270" height="270"/>
-        <image name="driver" width="384" height="384"/>
-        <image name="passenger" width="384" height="384"/>
+        <image name="Board" width="20" height="20"/>
+        <image name="Notification" width="20" height="20"/>
+        <image name="Profile" width="419.5" height="420.5"/>
+        <image name="RealTime" width="20" height="20"/>
+        <image name="Reservation" width="20" height="20"/>
+        <image name="SelectedButton" width="0.5" height="18"/>
+        <image name="Settings" width="20" height="20"/>
+        <image name="TitleLogo" width="135" height="135"/>
+        <image name="driver" width="240" height="240"/>
+        <image name="passenger" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WB1-8O-vhE"/>

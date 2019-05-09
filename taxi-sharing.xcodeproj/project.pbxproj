@@ -34,6 +34,7 @@
 		645B22A8223E5E7800F90412 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A7223E5E7800F90412 /* Utils.swift */; };
 		64620DC92255E73100D2CEA9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64620DC82255E73100D2CEA9 /* SettingsViewController.swift */; };
 		648157CF224511CB008111EF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648157CE224511CB008111EF /* SignupViewController.swift */; };
+		64B782BC2283EA23002476F8 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B782BB2283EA23002476F8 /* CropViewController.swift */; };
 		64CCDECA22446A4D002ECD04 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */; };
 		64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */; };
 		C4D745E6FAEF6BA2903E6972 /* Pods_taxi_sharingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */; };
@@ -102,6 +103,7 @@
 		645B22A7223E5E7800F90412 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		64620DC82255E73100D2CEA9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		648157CE224511CB008111EF /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		64B782BB2283EA23002476F8 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistinguishViewController.swift; sourceTree = "<group>"; };
 		8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingTests.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharingTests/Pods-taxi-sharingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				648157CE224511CB008111EF /* SignupViewController.swift */,
 				640FA5DC2212D66B00FE99E6 /* RoomListViewController.swift */,
 				64620DC82255E73100D2CEA9 /* SettingsViewController.swift */,
+				64B782BB2283EA23002476F8 /* CropViewController.swift */,
 				640FA5E02212D66B00FE99E6 /* Main.storyboard */,
 				640FA5E32212D66C00FE99E6 /* Assets.xcassets */,
 				640FA5E52212D66C00FE99E6 /* LaunchScreen.storyboard */,
@@ -320,6 +323,7 @@
 				TargetAttributes = {
 					640FA5D62212D66B00FE99E6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -328,10 +332,12 @@
 					};
 					640FA5EC2212D66C00FE99E6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 640FA5D62212D66B00FE99E6;
 					};
 					640FA5F72212D66C00FE99E6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 640FA5D62212D66B00FE99E6;
 					};
 				};
@@ -463,6 +469,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-taxi-sharing/Pods-taxi-sharing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -477,6 +484,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -506,6 +514,7 @@
 				64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */,
 				640FA5DD2212D66B00FE99E6 /* RoomListViewController.swift in Sources */,
 				64620DC92255E73100D2CEA9 /* SettingsViewController.swift in Sources */,
+				64B782BC2283EA23002476F8 /* CropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +700,7 @@
 					"$(PROJECT_DIR)/IOS_DaumMap_SDK_1.3.1/lib/DaumMap.embeddedframework",
 				);
 				INFOPLIST_FILE = "taxi-sharing/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,7 +712,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "wafflestudio.taxi-sharing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "taxi-sharing/KakaoOpenSDK-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -723,7 +732,7 @@
 					"$(PROJECT_DIR)/IOS_DaumMap_SDK_1.3.1/lib/DaumMap.embeddedframework",
 				);
 				INFOPLIST_FILE = "taxi-sharing/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -735,7 +744,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "wafflestudio.taxi-sharing";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "taxi-sharing/KakaoOpenSDK-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -756,7 +765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Croon.taxi-sharingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/taxi-sharing.app/taxi-sharing";
 			};
@@ -778,7 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Croon.taxi-sharingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/taxi-sharing.app/taxi-sharing";
 			};
@@ -799,7 +808,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Croon.taxi-sharingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "taxi-sharing";
 			};
@@ -820,7 +829,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Croon.taxi-sharingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "taxi-sharing";
 			};

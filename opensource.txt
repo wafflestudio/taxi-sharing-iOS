@@ -1,0 +1,3 @@
+
+IQKeyboardManager: https://github.com/hackiftekhar/IQKeyboardManager
+TOCropViewController: https://github.com/TimOliver/TOCropViewController

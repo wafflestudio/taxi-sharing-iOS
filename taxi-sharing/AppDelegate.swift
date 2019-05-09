@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -24,8 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         let db = Firestore.firestore()
+        let storage = Storage.storage()
         // [END default_firestore]
         print(db) // silence warning
+        print(storage) // silence warning
         
         // Turn of Layout Constraint related issues on console.
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
