@@ -1,4 +1,4 @@
-platform :ios, '10.0'
+platform :ios, '12.1'
 
 target 'taxi-sharing' do
   
@@ -10,6 +10,7 @@ target 'taxi-sharing' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'IQKeyboardManagerSwift'
   pod 'CropViewController'
 

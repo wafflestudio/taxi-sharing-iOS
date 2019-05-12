@@ -34,7 +34,8 @@
 		645B22A8223E5E7800F90412 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645B22A7223E5E7800F90412 /* Utils.swift */; };
 		64620DC92255E73100D2CEA9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64620DC82255E73100D2CEA9 /* SettingsViewController.swift */; };
 		648157CF224511CB008111EF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648157CE224511CB008111EF /* SignupViewController.swift */; };
-		64B782BE2283ECF1002476F8 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B782BD2283ECF1002476F8 /* CropViewController.swift */; };
+		649A9A282287F3D100102242 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 649A9A272287F3D100102242 /* CropViewController.framework */; };
+		64B782C822848097002476F8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B782C722848097002476F8 /* Extensions.swift */; };
 		64CCDECA22446A4D002ECD04 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */; };
 		64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */; };
 		C4D745E6FAEF6BA2903E6972 /* Pods_taxi_sharingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F24BAB8AC7CA8436E8A523E /* Pods_taxi_sharingUITests.framework */; };
@@ -67,6 +68,16 @@
 				6432DF58224B4B7400A43F71 /* DaumMap.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		649A9A262287F3BC00102242 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -103,7 +114,9 @@
 		645B22A7223E5E7800F90412 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		64620DC82255E73100D2CEA9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		648157CE224511CB008111EF /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		64B782BD2283ECF1002476F8 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		649A9A272287F3D100102242 /* CropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		649A9A292287F56400102242 /* TOCropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TOCropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64B782C722848097002476F8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		64CCDEC922446A4D002ECD04 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		64F5208D22428B3100FB0369 /* UserDistinguishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDistinguishViewController.swift; sourceTree = "<group>"; };
 		8464819401C37FF01FEF2B66 /* Pods-taxi-sharingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taxi-sharingTests.release.xcconfig"; path = "Target Support Files/Pods-taxi-sharingTests/Pods-taxi-sharingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				649A9A282287F3D100102242 /* CropViewController.framework in Frameworks */,
 				6432DF67224B4C3B00A43F71 /* libsqlite3.tbd in Frameworks */,
 				6432DF65224B4C3200A43F71 /* libxml2.tbd in Frameworks */,
 				6432DF63224B4C2400A43F71 /* libc++.tbd in Frameworks */,
@@ -201,7 +215,7 @@
 				648157CE224511CB008111EF /* SignupViewController.swift */,
 				640FA5DC2212D66B00FE99E6 /* RoomListViewController.swift */,
 				64620DC82255E73100D2CEA9 /* SettingsViewController.swift */,
-				64B782BD2283ECF1002476F8 /* CropViewController.swift */,
+				64B782C722848097002476F8 /* Extensions.swift */,
 				640FA5E02212D66B00FE99E6 /* Main.storyboard */,
 				640FA5E32212D66C00FE99E6 /* Assets.xcassets */,
 				640FA5E52212D66C00FE99E6 /* LaunchScreen.storyboard */,
@@ -233,6 +247,8 @@
 		64249C712233709000D258F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				649A9A292287F56400102242 /* TOCropViewController.framework */,
+				649A9A272287F3D100102242 /* CropViewController.framework */,
 				6432DF68224B54FB00A43F71 /* MapKit.framework */,
 				6432DF66224B4C3B00A43F71 /* libsqlite3.tbd */,
 				6432DF64224B4C3200A43F71 /* libxml2.tbd */,
@@ -263,6 +279,7 @@
 				640FA5D52212D66B00FE99E6 /* Resources */,
 				AC37D9FDEEEE6B7A75E37D7E /* [CP] Embed Pods Frameworks */,
 				6432DF59224B4B7400A43F71 /* Embed Frameworks */,
+				649A9A262287F3BC00102242 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
@@ -474,6 +491,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -489,6 +507,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -511,10 +530,10 @@
 				645B229A223BCB7A00F90412 /* LoginViewController.swift in Sources */,
 				648157CF224511CB008111EF /* SignupViewController.swift in Sources */,
 				640FA5DB2212D66B00FE99E6 /* AppDelegate.swift in Sources */,
+				64B782C822848097002476F8 /* Extensions.swift in Sources */,
 				64F5208E22428B3100FB0369 /* UserDistinguishViewController.swift in Sources */,
 				640FA5DD2212D66B00FE99E6 /* RoomListViewController.swift in Sources */,
 				64620DC92255E73100D2CEA9 /* SettingsViewController.swift in Sources */,
-				64B782BE2283ECF1002476F8 /* CropViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +719,7 @@
 					"$(PROJECT_DIR)/IOS_DaumMap_SDK_1.3.1/lib/DaumMap.embeddedframework",
 				);
 				INFOPLIST_FILE = "taxi-sharing/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -732,7 +751,7 @@
 					"$(PROJECT_DIR)/IOS_DaumMap_SDK_1.3.1/lib/DaumMap.embeddedframework",
 				);
 				INFOPLIST_FILE = "taxi-sharing/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

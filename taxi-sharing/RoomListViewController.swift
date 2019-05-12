@@ -39,7 +39,7 @@ class RoomListViewController: UITableViewController, MTMapViewDelegate, CLLocati
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         if let superview = UIApplication.shared.keyWindow {
             superview.addSubview(floatingActionButton)
             setupButton()

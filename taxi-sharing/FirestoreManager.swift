@@ -8,7 +8,9 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class FirestoreManager {
     
@@ -33,6 +35,7 @@ class FirestoreManager {
             "createdDate": FieldValue.serverTimestamp(),
             "lastLoginDate": FieldValue.serverTimestamp(),
             "noShow": 0,
+            "profileImage": false,
             "currentRoom": "None"
         ]) {err in
             if let err = err {
@@ -329,5 +332,83 @@ class FirestoreManager {
                 print("Document does not exist")
             }
         }
+    }
+    
+    // Upload a user's profile image to Firebase storage
+    func uploadImage(image: UIImage) {
+        let storage = Storage.storage()
+        var imagedata = Data()
+        imagedata = image.jpegData(compressionQuality: 0.8)!
+        
+        let storageRef = storage.reference()
+        let imageRef = storageRef.child("profileimages/\((Auth.auth().currentUser?.uid)!).jpeg")
+        
+        imageRef.delete { error in
+            if error != nil {
+                // error occured in deleting image file on Firebase storage
+            } else {
+                // file deleted successfully
+            }
+        }
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        let uploadTask = imageRef.putData(imagedata, metadata: metadata) { (metadata, error) in
+            guard metadata != nil else {
+                // error occured assoicated with image's metadata
+                return
+            }
+            
+            imageRef.downloadURL { (url, error) in
+                guard url != nil else {
+                    // error occured associated with image's url. perhaps the image is not properly uploaded on Firebase storage
+                    return
+                }
+                
+            }
+            
+        }
+        
+        uploadTask.observe(.failure) { snapshot in
+            if let error = snapshot.error as NSError? {
+                switch (StorageErrorCode(rawValue: error.code)!) {
+                case .objectNotFound:
+                    // File doesn't exist
+                    break
+                case .unauthorized:
+                    // User doesn't have permission to access file
+                    break
+                case .cancelled:
+                    // User canceled the upload
+                    break
+                    
+                case .unknown:
+                    // Unknown error occurred, inspect the server response
+                    break
+                default:
+                    // A separate error occurred. This is a good place to retry the upload.
+                    break
+                }
+            }
+        }
+        
+        updateUser(uid: (Auth.auth().currentUser?.uid), data: ["profileImage": true])
+    }
+    
+    // Delete a user's profile image
+    func deleteImage() {
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imageRef = storageRef.child("profileimages/\((Auth.auth().currentUser?.uid)!).jpeg")
+        
+        imageRef.delete { error in
+            if error != nil {
+                // error occured in deleting image file on Firebase storage
+            } else {
+                // file deleted successfully
+            }
+        }
+        
+        updateUser(uid: (Auth.auth().currentUser?.uid), data: ["profileImage": false])
     }
 }

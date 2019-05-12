@@ -324,13 +324,15 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTV-De-Dna">
                                                         <rect key="frame" x="0.0" y="76.5" width="304" height="30"/>
                                                         <state key="normal" title="이름 변경"/>
+                                                        <connections>
+                                                            <action selector="resetUsername:" destination="1nU-ja-xy5" eventType="touchUpInside" id="5IQ-yY-OA7"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e89-bi-kPu">
                                                         <rect key="frame" x="0.0" y="118" width="304" height="30"/>
                                                         <state key="normal" title="프로필 이미지 변경"/>
                                                         <connections>
                                                             <action selector="setProfileImage:" destination="1nU-ja-xy5" eventType="touchUpInside" id="AGo-BD-9C3"/>
-                                                            <segue destination="KBe-Eh-tuw" kind="presentation" id="RSP-zR-hrk"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNW-gg-dQU">
@@ -394,6 +396,7 @@
                         <outlet property="noShowLabel" destination="gSb-NC-P8D" id="b5m-kh-gBU"/>
                         <outlet property="profilePicture" destination="gLk-te-X8G" id="jJx-cC-oF8"/>
                         <outlet property="userName" destination="FGS-t0-cg4" id="NId-AJ-2pl"/>
+                        <segue destination="KBe-Eh-tuw" kind="presentation" identifier="ImageCropSegue" id="CqT-TD-RN1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGF-CC-0Mh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +410,7 @@
                     <view key="view" contentMode="scaleToFill" id="Zu9-qc-ISR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8mX-hG-XpQ"/>
                     </view>
                 </viewController>

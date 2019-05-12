@@ -2,16 +2,19 @@
 //  SettingsViewController.swift
 //  taxi-sharing
 //
-//  Created by 오승열 on 04/04/2019.
+//  Created by 오승열 on 04/04/2019. Used Tim Oliver's TOCropViewController.
+//  See https://github.com/TimOliver/TOCropViewController for more information.
 //  Copyright © 2019 CroonSSS. All rights reserved.
 //
 
 import UIKit
-import FirebaseStorage
 import FirebaseAuth
 import FirebaseFirestore
+import CropViewController
+import FirebaseUI
+import FirebaseStorage
 
-class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SettingsViewController: UIViewController, CropViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: Properties
     @IBOutlet weak var accountInfoView: UIView!
@@ -24,9 +27,16 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var isAuthenticatedLabel: UILabel!
     
     let db = Firestore.firestore()
-    let storage = Storage.storage()
     
+    private let imageView = UIImageView()
     
+    private var image: UIImage?
+    private var croppingStyle = CropViewCroppingStyle.default
+    
+    private var croppedRect = CGRect.zero
+    private var croppedAngle = 0
+    
+    //MARK: Overriding View Related Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,61 +60,35 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             if let document = document, document.exists {
                 let data = document.data()
                 self.userName.text = data?["nickname"] as? String
+                
                 let numberOfNoShow = data?["noShow"] as? Int
                 self.noShowLabel.text = String(numberOfNoShow!)
+                
                 let isSNUMember = data?["isSNUMember"] as? Bool
                 if isSNUMember == false {
                     self.isAuthenticatedLabel.text = "X"
                 } else {
                     self.isAuthenticatedLabel.text = "O"
                 }
+                
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let imageRef = storageRef.child("profileimages/\((Auth.auth().currentUser?.uid)!).jpeg")
+                let placeholderImage = UIImage(named: "Profile")
+                self.profilePicture.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
+                
             } else {
                 fatalError("The user got into the application without having data in the firestore")
             }
         }
     }
     
-    //MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-        }
-        
-        profilePicture.image = selectedImage
-        
-        // Create a reference to the picture file to be uploaded.
-        let storageRef = storage.reference()
-        let profileImageRef = storageRef.child("\(Auth.auth().currentUser?.uid)/\(FieldValue.serverTimestamp()).jpg")
-        
-        // Upload the file to the reference path
-        guard let imageData = selectedImage.pngData() else {return}
-        print(imageData)
-        let uploadTask = profileImageRef.putData(imageData, metadata: nil) { metadata, error in
-            guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-            }
-            /*
-            // Metadata contains file metadata such as size, content-type.
-            let size = metadata.size
-            // You can also access to download URL after upload.
-             storageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-            } */
-        }
-        dismiss(animated: true, completion: nil)
-        
-        
-    }
-    
-    //MARK: IBActions
+    //MARK: Actions
     @IBAction func logoutAction(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -120,22 +104,106 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func setProfileImage(_ sender: UIButton) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        
+        let alertController = UIAlertController(title: nil, message: "프로필 이미지 변경", preferredStyle: .actionSheet)
+        
+        let defaultAction = UIAlertAction(title: "기본 이미지로 변경", style: .default) { (action) in
+            FirestoreManager().deleteImage()
+            self.profilePicture.image = UIImage(named: "Profile") ?? UIImage()
+            self.showToast(message: "기본 이미지로 변경되었습니다.")
+        }
+        
+        let profileAction = UIAlertAction(title: "앨범에서 선택", style: .default) { (action) in
+            self.croppingStyle = .circular
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.modalPresentationStyle = .popover
+            imagePicker.preferredContentSize = CGSize(width: 320, height: 568)
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+            imagePicker.delegate = self
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (action) in
+            // canceling the action
+        }
+        
+        alertController.addAction(defaultAction)
+        alertController.addAction(profileAction)
+        alertController.addAction(cancelAction)
+        alertController.modalPresentationStyle = .popover
+        
+        
+        let presentationController = alertController.popoverPresentationController
+        presentationController?.sourceView = sender
+        presentationController?.sourceRect = sender.bounds
+        presentationController?.permittedArrowDirections = UIPopoverArrowDirection.left
+        
+        present(alertController, animated: true, completion: nil)
         
     }
     
+    //MARK: Functions
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
+        
+        let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
+        cropController.delegate = self
+        
+        self.image = image
+        
+        //If profile picture, push onto the same navigation stack
+        if croppingStyle == .circular {
+            if picker.sourceType == .camera {
+                picker.dismiss(animated: true, completion: {
+                    self.present(cropController, animated: true, completion: nil)
+                })
+            } else {
+                picker.pushViewController(cropController, animated: true)
+            }
+        }
+        else { //otherwise dismiss, and then present from the main controller
+            picker.dismiss(animated: true, completion: {
+                self.present(cropController, animated: true, completion: nil)
+                //self.navigationController!.pushViewController(cropController, animated: true)
+            })
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.croppedRect = cropRect
+        self.croppedAngle = angle
+        
+        FirestoreManager().uploadImage(image: image)
+        self.profilePicture.image = image
+        cropViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    /*
+    //MARK: Resetting username
+    @IBAction func resetUsername(_ sender: Any) {
+        let alertController = UIAlertController(title: "이름 변경", message: nil, preferredStyle: .alert)
+        
+        let resetAction = UIAlertAction(title: "변경", style: .default) { (_) in
+            let usernameTextField = alertController.
+        }
+    }
+     */
+    
+    
+
     /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     */
-
 }
