@@ -14,7 +14,7 @@ import CropViewController
 import FirebaseUI
 import FirebaseStorage
 
-class SettingsViewController: UIViewController, CropViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SettingsViewController: UIViewController, CropViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     //MARK: Properties
     @IBOutlet weak var accountInfoView: UIView!
@@ -35,6 +35,8 @@ class SettingsViewController: UIViewController, CropViewControllerDelegate, UIIm
     
     private var croppedRect = CGRect.zero
     private var croppedAngle = 0
+    
+    private let lengthLimit = 15
     
     //MARK: Overriding View Related Functions
     override func viewDidLoad() {
@@ -108,6 +110,9 @@ class SettingsViewController: UIViewController, CropViewControllerDelegate, UIIm
         let alertController = UIAlertController(title: nil, message: "프로필 이미지 변경", preferredStyle: .actionSheet)
         
         let defaultAction = UIAlertAction(title: "기본 이미지로 변경", style: .default) { (action) in
+            
+            SDImageCache.shared().clearMemory()
+            SDImageCache.shared().clearDisk(onCompletion: nil)
             FirestoreManager().deleteImage()
             self.profilePicture.image = UIImage(named: "Profile") ?? UIImage()
             self.showToast(message: "기본 이미지로 변경되었습니다.")
@@ -180,24 +185,59 @@ class SettingsViewController: UIViewController, CropViewControllerDelegate, UIIm
         self.croppedRect = cropRect
         self.croppedAngle = angle
         
+        SDImageCache.shared().clearMemory()
+        SDImageCache.shared().clearDisk(onCompletion: nil)
         FirestoreManager().uploadImage(image: image)
         self.profilePicture.image = image
         cropViewController.dismiss(animated: true, completion: nil)
     }
     
-    /*
+    
     //MARK: Resetting username
     @IBAction func resetUsername(_ sender: Any) {
-        let alertController = UIAlertController(title: "이름 변경", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "사용자 이름 변경", message: nil, preferredStyle: .alert)
         
         let resetAction = UIAlertAction(title: "변경", style: .default) { (_) in
-            let usernameTextField = alertController.
+            let usernameTextField = alertController.textFields![0] as UITextField
+            FirestoreManager().updateUser(uid: Auth.auth().currentUser?.uid, data: ["nickname": usernameTextField.text!])
+            self.userName.text = usernameTextField.text
+            self.showToast(message: "사용자 이름이 변경되었습니다.")
         }
+        resetAction.isEnabled = false
+        alertController.addAction(resetAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (_) in
+            //
+        }
+        alertController.addAction(cancelAction)
+        
+        alertController.addTextField{ (textField) in
+            textField.placeholder = "사용자 이름 : 15자 이하"
+            
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main) { (notification) in
+                resetAction.isEnabled = ((textField.text! != "") && (textField.text!.count <= 15))
+            }
+        }
+        
+        present(alertController, animated: true)
     }
-     */
     
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
     
-
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return false }
+        if (string == " ") {
+            return false
+        }
+        let newLength = text.count + string.count - range.length
+        return newLength <= lengthLimit
+    }
+    
     /*
     // MARK: - Navigation
 
